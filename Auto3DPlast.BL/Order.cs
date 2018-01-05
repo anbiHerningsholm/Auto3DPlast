@@ -51,6 +51,7 @@ namespace Auto3DPlast.BL
             if (OrderDate == null) isValid = false;
 
             return isValid;
+            //Her skal der være noget, der kan håndtere en variabel!
         }
     }
 }
