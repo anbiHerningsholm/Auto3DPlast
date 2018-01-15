@@ -18,7 +18,16 @@ namespace Auto3DPlast.BL
             this.ProductId = productId;
         }
 
-        public Decimal? CurrentPrice { get; set; }
+        public Product(int productId, string productName, string productDescription, double currentPrice)
+        {
+            ProductId = productId;
+            ProductName = productName;
+            ProductDescription = productDescription;
+            CurrentPrice = currentPrice;
+
+        }
+
+        public double? CurrentPrice { get; set; }
         public int ProductId { get; private set; }
         public string ProductDescription { get; set; }
         public string ProductName { get; set; }
@@ -55,5 +64,33 @@ namespace Auto3DPlast.BL
 
             return isValid;
         }
-    }
+
+        public static List<Product> productList()
+        {
+            List<Product> list = new List<Product>()
+            {
+                { new Product(1235, "VW kofanger", "Blå kofanger til VW Up", 465.34) },
+                { new Product(1298, "Audi kofanger", "Blå kofanger til Audi TT", 567.78)},
+                { new Product(3321, "Audi kofanger", "Gul kofanger til Audi TT", 567.78)},
+                { new Product(4321, "VW motorventil", "Gul motorventil til VW Golf", 32.65)},
+                { new Product(5987, "VW motorventil 2", "Blå motorventil til VW Passat", 34.95)},
+                { new Product(6121, "Skoda stænklap", "Sort stænklap til Skoda Fabia", 134.87)},
+                { new Product(1227, "Skoda stænklap 2", "Sort stænklap til Skoda Superb", 165.12)},
+                { new Product(1248, "VW gearknop", "Rød gearknop, passer til Polo og Golf", 4750)},
+                { new Product(2329, "Audi gearknop", "Rød gearknop, passer til Audi A3 og A4", 4750)},
+                { new Product(1090, "Skoda gearknop", "Rød gearknop, passer til Fabia og Octavia", 4750)},
+          };
+            return list;
+        }
+
+        public void Log()
+        {
+            List<Product> list = productList();
+            foreach (Product product in list)
+            {
+                string log = product.ProductId + "; " + product.ProductName + "; " + product.ProductDescription + product.CurrentPrice + "; " + "\r\n";
+                System.IO.File.AppendAllText(@"C:\Users\ANBI\Documents\Visual Studio 2017\Projects\Auto3DPlast\testLog.txt", log);
+            }
+        }
+}
 }

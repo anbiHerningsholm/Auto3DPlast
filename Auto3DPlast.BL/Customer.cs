@@ -18,6 +18,16 @@ namespace Auto3DPlast.BL
             this.CustomerId = customerId;
         }
 
+        public Customer(int customerId, string firstName, string lastName, string homeAddress, string workAddress, string emailAddress)
+        {
+            CustomerId = customerId;
+            FirstName = firstName;
+            LastName = LastName;
+            HomeAdress = homeAddress;
+            WorkAdress = workAddress;
+            EmailAdress = emailAddress;
+        }
+
         private string lastName;
         public string LastName
         {
@@ -75,7 +85,22 @@ namespace Auto3DPlast.BL
 
         public List<Customer> Retrieve()
         {
-            return new List<Customer>();
+            List<Customer> customerList = new List<Customer>()
+            {
+                //Customer cust1 = new Customer(1, "Anja", "Birkelund", "Roskildevej 3", "Lillelundvej 21", "anbi@herningsholm.dk" )
+                { new Customer(1, "Anja", "Birkelund", "Roskildevej 3", "Lillelundvej 21", "anbi@herningsholm.dk" ) },
+                { new Customer(1, "Brian", "Soltau", "Anemonevej 3", "Lillelundvej 21", "brso@herningsholm.dk") },
+                { new Customer(1, "Helle", "Hansen", "Lavendelvej 24", "Lillelundvej 21", "heha@herningsholm.dk" ) },
+                { new Customer(1, "Otto", "Gadegaard", "Svinget 7", "Lillelundvej 21", "otg@herningsholm.dk" ) },
+                { new Customer(1, "Kenneth", "Lauritsen", "Bornholmsvej 123", "Lillelundvej 21", "kela@herningsholm.dk" ) },
+                { new Customer(1, "Anne", "Olsen", "Niels Damgaards Plads 98", "Lillelundvej 21", "anne_olsen@gmail.com" ) },
+                { new Customer(1, "Liv", "Sørensen", "Olufsvænget 14", "Lillelundvej 21", "ls@herningsholm.dk" ) },
+                { new Customer(1, "Morten", "Løve", "Ligusterhaven 1", "Lillelundvej 21", "molo@gmail.com" ) },
+                { new Customer(1, "Søren", "Hansen", "Thyvej 21", "Lillelundvej 21", "soh@herningsholm.dk" ) },
+                { new Customer(1, "Mette", "Vuns", "Algade 41", "Lillelundvej 21", "mev@herningsholm.dk" ) }
+
+            };
+            return customerList;
         }
 
         public void Save()
